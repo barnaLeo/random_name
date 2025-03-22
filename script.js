@@ -11,6 +11,12 @@ const allNamesListDiv = document.getElementById('allNamesList');
 // Add click event listener to the add button
 addButton.addEventListener('click', addName);
 
+// Optional: Add name when Enter key is pressed
+nameInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        addName();
+    }
+});
 // Function to add a name
 function addName() {
     const name = nameInput.value.trim();
@@ -26,12 +32,6 @@ function addName() {
     }
 }
 
-// Optional: Add name when Enter key is pressed
-nameInput.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
-        addName();
-    }
-});
 // Function to update the list of all names
 function updateAllNamesList() {
     allNamesListDiv.innerHTML = '<h3>All Names:</h3>';
